@@ -3868,8 +3868,17 @@ int main (int argc, char **argv)
 
   option_source_filename = sfilename;
 
-  /* In case there were no arguments, set the default command. */
-  if (cmd == CMD_NONE) { cmd = CMD_DEFAULT; }
+  /* In case there were no arguments, show help instead of using default command */
+  if (cmd == CMD_NONE) {
+    if (env_argc <= 1) {
+      /* No arguments provided, show help and exit */
+      ret = main_help();
+      goto exit;
+    } else {
+      /* Arguments provided but no command specified, use default */
+      cmd = CMD_DEFAULT;
+    }
+  }
 
   argc -= my_optind;
   argv += my_optind;
@@ -4058,5 +4067,5 @@ main_help (void)
   XPR(NTR "   XDELTA=\"-s source-x.y.tar.gz\" \\\n");
   XPR(NTR "   tar --use-compress-program=xdelta3 \\\n");
   XPR(NTR "       -cf target-x.z.tar.gz.vcdiff target-x.y\n");
-  return EXIT_FAILURE;
+  return EXIT_SUCCESS;
 }
