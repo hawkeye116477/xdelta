@@ -345,7 +345,7 @@ static int
 main_version (void)
 {
   /* $Format: "  XPR(NTR \"Xdelta version $Xdelta3Version$, Copyright (C) Joshua MacDonald\\n\");" $ */
-  XPR(NTR "Xdelta version 3.1.1, Copyright (C) Joshua MacDonald\n");
+  XPR(NTR "Xdelta version 3.1.0, Copyright (C) Joshua MacDonald\n");
   XPR(NTR "Xdelta comes with ABSOLUTELY NO WARRANTY.\n");
   XPR(NTR "Licensed under the Apache License, Version 2.0\n");
   XPR(NTR "See \"LICENSE\" for details.\n");
